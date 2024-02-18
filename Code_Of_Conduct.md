@@ -1,8 +1,10 @@
 # Software Engineering 1 Code of Conduct
 ### Group Members:
-Sharath Kiritharan (KIR22555037)
-Zakaria Manyani (MAN22525381)
-Mohammed Benchekroun Krimi (KRI22528198)
+Sharath Kiritharan (KIR22555037) <br>
+Zakaria Manyani (MAN22525381) <br>
+Mohammed Benchekroun Krimi (KRI22528198) <br>
+Taha Achiban (ACH22512629) 
+
 
 ## Attendance and Participation
  Members of the team are expected to attend all scheduled meetings, occuring twice a week, on Fridays at 2pm, and on Tuesdays, at 10am. If a member is unable to attend, notify the other group members at least two hours prior to the meeting.
