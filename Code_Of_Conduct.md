@@ -57,3 +57,7 @@ There may be changes made to this code of conduct, and all group members will be
 
 ## Conclusion
 By participating in this group, each member understands that they will follow this code of conduct, so that we can build a positive and productive environment, where all members feel valued and respected. If a member has any questions, ask through whatever available mediums there are. 
+
+
+This document does reference the Mozilla Code of Conduct, found : <br>
+https://www.mozilla.org/en-US/about/governance/policies/participation/s
