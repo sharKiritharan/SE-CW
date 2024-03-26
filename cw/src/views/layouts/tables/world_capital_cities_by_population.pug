@@ -1,0 +1,12 @@
+table(class="table")
+    thead
+        tr
+            th Name 
+            th Country                  
+            th Population  
+    tbody
+       for city,index in data
+            tr(class="rows")
+                td= city.Name 
+                td= city.Country                   
+                td= city.Population

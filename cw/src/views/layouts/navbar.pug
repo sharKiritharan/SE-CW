@@ -1,0 +1,19 @@
+div(class="container" bis_skin_checked="1")
+    header(class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between mb-4 border-bottom")
+        a(href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none")
+            h2 W P S
+        nav(class="navbar navbar-expand-sm")
+            button(class="navbar-toggler" type="button" data-target="#navigation")
+                span(class="navbar-toggler-icon")
+            div(class="collapse navbar-collapse")
+                ul(class="navbar-nav")
+                    li(class="nav-item active custom-nav-item")
+                        a(href="/" class="nav-link text-dark custom-nav-link") Home
+                    li(class="nav-item active custom-nav-item")
+                        a(href="/contact" class="nav-link text-dark custom-nav-link") Contact Us
+                    li(class="nav-item active custom-nav-item")
+                        a(href="/viewer" class="nav-link text-dark custom-nav-link") DB Viewer(temp)
+        div(class="col-md-3 text-end" bis_skin_checked="1")
+            a(type="button" href=username ? "/logout" : "/login" class="btn btn-outline-primary me-2") Login
+                 span(class="text-dark" style="padding-left:20px") #{username && username}
+            a(type="button" href="/register" class="btn btn-primary" style=username&& 'display:none') Sign up

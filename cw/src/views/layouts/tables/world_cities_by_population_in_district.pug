@@ -1,0 +1,19 @@
+for district in districts
+    table(class="table")
+        thead
+            tr
+                th Name 
+                th CountryCode               
+                th District     
+                th Population   
+        tbody
+            for city,index in citiesInDistrict
+                if city.District === district
+                    tr(class="rows")
+                        td= city.Name 
+                        td= city.CountryCode               
+                        td= city.District     
+                        td= city.Population
+                        td
+                          a(href=`/edit-city/${JSON.stringify(citiesInDistrict[index])}` class=`btn btn-primary` id=`edit-button`) 
+                           | Edit

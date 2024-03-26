@@ -1,0 +1,28 @@
+extends layouts/main
+
+block content
+    
+
+    main(class="d-flex justify-content-center align-items-center flex-column form-signin vw-100")
+        h2(class="display-4 fw-bold") LOGIN
+         
+
+        form(class="mb-5" method="post"  action="/login")
+            div(classnamw='alert alert-danger' role='alert') #{message && message}
+
+            h1(class="h3 mb-3 fw-normal")
+
+            div(class="form-floating" bis_skin_checked="1")
+                input(type="text" class="form-control" id="username" name="username" placeholder="Username")
+                label(for="username") Username
+
+            div(class="form-floating" bis_skin_checked="1")
+                input(type="password" class="form-control" id="password" name="password" placeholder="Password")
+                label(for="password") Password
+
+            div(class="checkbox mb-3" bis_skin_checked="1")
+                label #[input(type="checkbox" value="remember-me")] Remember me
+
+            div(class="d-flex justify-content-center")
+               input(type='submit', value='Login' class="btn btn-primary")
+
