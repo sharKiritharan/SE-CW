@@ -41,27 +41,6 @@ router.get("/login", (req, res) => {
   return res.render("login");
 });
 
-router.post("/register", urlencodedParser, (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
-  const email = req.body.email;
-
-  pool.getConnection((err, connection) => {
-    let query = `INSERT INTO user (username, email, password) VALUES ('${username}','${email}','${password}');`;
-    connection.query(query, (err, data) => {
-      connection.release();
-      if (err) {
-        console.log("not able to add", err.message);
-        return;
-      }
-      res.render("register", {
-        message: "User Added",
-        username: req.session.username,
-      });
-    });
-  });
-});
-
 router.get("/viewer/world_countries_by_population/:limit?", (req, res) => {
   pool.getConnection((err, connection) => {
     const limit = req.params.limit;
