@@ -12,7 +12,7 @@ const pool = mysql.createPool({
   host: "172.18.0.2",
   port: "3306",
   user: "root",
-  password: "password",
+  password: "somepassword",
   database: 'world',
 });
 router.get("/", (req, res) => {
@@ -64,21 +64,25 @@ router.post("/register", urlencodedParser, (req, res) => {
 
 router.get("/viewer/world_countries_by_population/:limit?", (req, res) => {
   pool.getConnection((err, connection) => {
+    if (err) {
+      console.error("Error getting MySQL connection: ", err);
+      return;
+    }
+
     const limit = req.params.limit;
+    let query;
+
     if (limit) {
       query = `select Code,Name,Continent,Region,Population,Capital from country order by population desc LIMIT ${limit}`;
     } else {
-      query =
-        "select Code,Name,Continent,Region,Population,Capital from country order by population desc";
+      query = "select Code,Name,Continent,Region,Population,Capital from country order by population desc";
     }
 
     connection.query(query, (err, data) => {
       connection.release();
 
       if (err) {
-        console.log(
-          "Error: world_countries_by_population failed to obtain data"
-        );
+        console.log("Error: world_countries_by_population failed to obtain data");
         return;
       }
 
