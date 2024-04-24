@@ -1,16 +1,8 @@
 {
   "name": "database-viewer",
-  "description": "Software Engineering Group Project",
+  "description": "Software Engineering Project",
   "version": "0.0.4",
-  "author": "Checkmate Group",
-  "license": "GPLv3",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/checkmate-group/coursework.git"
-  },
-  "bugs": {
-    "url": "https://github.com/checkmate-group/coursework/issues"
-  },
+  "author": "Shar",
   "homepage": "https://localhost:3000",
   "private": true,
   "scripts": {
