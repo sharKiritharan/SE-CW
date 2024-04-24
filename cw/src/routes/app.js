@@ -867,4 +867,56 @@ router.get("/viewer/population_in_out_cities_by_region", (req, res) => {
   });
 });
 
+router.get("/edit/:data?", (req, res) => {
+  const formData = JSON.parse(req.params.data);
+  const filterOption = continents.filter((val) => val !== formData.Continent);
+  return res.render("edit", {
+    data: formData,
+    options: filterOption,
+    username: req.session.username,
+  });
+});
+router.post("/edit/:data?", urlencodedParser, (req, res) => {
+  const reqCode = JSON.parse(req.params.data);
+  pool.getConnection((err, connection) => {
+    const code = reqCode.Code;
+    const name = req.body.name;
+    const continent = req.body.continent;
+    const region = req.body.region;
+    const population = Number(req.body.population);
+    const capital = Number(req.body.capital);
+    let query = `UPDATE country SET Name='${name}',Continent='${continent}',Region='${region}',Population=${population},Capital=${capital} WHERE Code = '${code}'`;
+    connection.query(query, (err, data) => {
+      connection.release();
+      if (err) {
+        console.log("not able to update", err.message);
+        return;
+      }
+      res.render("viewer", { reports, username: req.session.username });
+    });
+  });
+});
+router.post("/edit-city/:data?", urlencodedParser, (req, res) => {
+  const reqCode = JSON.parse(req.params.data);
+  pool.getConnection((err, connection) => {
+    const id = reqCode.ID;
+    const name = req.body.name;
+    const countryCode = req.body.countryCode;
+    const population = Number(req.body.population);
+    const district = req.body.district;
+    let query = `UPDATE city SET Name='${name}',CountryCode='${countryCode}',District='${district}',Population='${population}' WHERE ID =${id}`;
+    connection.query(query, (err, data) => {
+      connection.release();
+      if (err) {
+        console.log("not able to update", err.message);
+        return;
+      }
+      res.render("viewer", { reports, username: req.session.username });
+    });
+  });
+
+});
+
+
+
 module.exports = router;
